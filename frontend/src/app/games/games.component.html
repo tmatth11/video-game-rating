@@ -1,0 +1,31 @@
+<div class="games-container">
+    <h1>Games</h1>
+    <button *ngIf="isAdmin" mat-flat-button class="new-game" (click)="openNewGameDialog()">New Game</button>
+    <div *ngIf="games && games.length > 0; else noGamesFound">
+        <mat-table [dataSource]="games">
+            <!-- Title Column -->
+            <ng-container matColumnDef="title">
+                <mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
+                <mat-cell *matCellDef="let game"><a (click)="viewGameDetails(game)">{{game.title}}</a></mat-cell>
+            </ng-container>
+    
+            <!-- Release Year Column -->
+            <ng-container matColumnDef="releaseYear">
+                <mat-header-cell *matHeaderCellDef>Release Year</mat-header-cell>
+                <mat-cell *matCellDef="let game">{{game.releaseYear}}</mat-cell>
+            </ng-container>
+    
+            <!-- Average Rating Column -->
+            <ng-container matColumnDef="averageRating">
+                <mat-header-cell *matHeaderCellDef>Average Rating</mat-header-cell>
+                <mat-cell *matCellDef="let game">{{game.averageRating}}</mat-cell>
+            </ng-container>
+    
+            <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+            <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+    </div>
+    <ng-template #noGamesFound>
+        <p>No games found!</p>
+      </ng-template>
+</div>

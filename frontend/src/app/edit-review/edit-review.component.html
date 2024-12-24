@@ -1,0 +1,24 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <h2 mat-dialog-title>
+        {{data.isNew ? 'Create Review' : 'Edit Review'}}
+        <button mat-icon-button (click)="closeDialog()" class="close-button">
+            <mat-icon>close</mat-icon>
+        </button>
+    </h2>
+    <mat-dialog-content>
+        <p>Enter a review</p>
+        <mat-form-field>
+            <mat-label>Enter content</mat-label>
+            <input matInput type="text" id="content" name="content" formControlName="content" />
+        </mat-form-field>
+        <p>Enter a rating</p>
+        <mat-form-field>
+            <mat-label>Enter rating</mat-label>
+            <input matInput type="number" id="rating" name="rating" formControlName="rating" min="0" max="10" />
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-flat-button (click)="onClear()">Clear</button>
+        <button mat-flat-button type="submit">Submit</button>
+    </mat-dialog-actions>
+</form>

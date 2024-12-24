@@ -1,0 +1,35 @@
+.games-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+mat-header-cell {
+    font-weight: bold;
+    text-align: center;
+}
+
+mat-header-cell,
+mat-cell {
+    padding: 15px;
+}
+
+mat-cell a {
+    cursor: pointer;
+    color: #1e88e5; 
+    text-decoration: underline;
+}
+
+mat-cell a:hover {
+    color: #1565c0; 
+}
+
+.new-game {
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 485px) {
+    mat-table {
+        width: 300px;
+    }
+}

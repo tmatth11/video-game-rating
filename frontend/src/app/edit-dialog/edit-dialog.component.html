@@ -1,0 +1,34 @@
+<form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+    <h2 mat-dialog-title>
+        {{data.isNew ? 'Create Game' : 'Edit Game'}}
+        <button mat-icon-button (click)="closeDialog()" class="close-button">
+            <mat-icon>close</mat-icon>
+        </button>
+    </h2>
+    <mat-dialog-content>
+        <p>Enter a title</p>
+        <mat-form-field>
+            <mat-label>Enter title</mat-label>
+            <input matInput type="text" id="title" name="title" formControlName="title" />
+        </mat-form-field>
+        <p>Enter the genres separated by commas</p>
+        <mat-form-field>
+            <mat-label>Enter genres</mat-label>
+            <input matInput type="text" id="genre" name="genre" formControlName="genre" />
+        </mat-form-field>
+        <p>Enter the platforms separated by commas</p>
+        <mat-form-field>
+            <mat-label>Enter platforms</mat-label>
+            <input matInput type="text" id="platform" name="platform" formControlName="platform" />
+        </mat-form-field>
+        <p>Enter a release year</p>
+        <mat-form-field>
+            <mat-label>Enter release year</mat-label>
+            <input matInput type="number" id="releaseYear" name="releaseYear" formControlName="releaseYear" />
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-flat-button (click)="onClear()">Clear</button>
+        <button mat-flat-button type="submit">Submit</button>
+    </mat-dialog-actions>
+</form>

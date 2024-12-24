@@ -1,0 +1,30 @@
+.details-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+.review  {
+    max-width: 300px;
+    word-wrap: break-word;
+}
+
+.owner-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.edit-review {
+    margin-right: 10px;
+}
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+}

@@ -1,0 +1,19 @@
+<mat-toolbar>
+    <span class="clickable" (click)="navigateToHome()">Video Game Ratings App</span>
+    <div class="link-container">
+        <ng-container *ngIf="!isLoggedIn(); else loggedInLinks">
+            <a mat-button routerLink="/login">Login</a>
+            <a mat-button routerLink="/register">Register</a>
+        </ng-container>
+        <ng-template #loggedInLinks>
+            <a mat-button routerLink="/games">Games</a>
+            <a mat-button (click)="logout()">Log Out</a>
+        </ng-template>
+    </div>
+</mat-toolbar>
+<main>
+    <router-outlet></router-outlet>
+</main>
+<footer>
+    <span>© 2025 Video Game Ratings App</span>
+</footer>

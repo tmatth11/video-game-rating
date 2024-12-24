@@ -1,0 +1,35 @@
+<div class="details-container">
+    <div *ngIf="isOwner" class="owner-actions">
+        <button mat-flat-button (click)="openDialog()">Edit</button>
+        <button mat-flat-button (click)="deleteGame()">Delete</button>
+    </div>
+    <h1>{{game.title}} ({{game.releaseYear}})</h1>
+    <div class="game-details">
+        <h2>Details</h2>
+        <p><strong>Average Rating:</strong> {{game.averageRating}}/10</p>
+        <p><strong>Platform(s):</strong></p>
+        <ul>
+            <li *ngFor="let platform of game.platform">{{platform}}</li>
+        </ul>
+        <p><strong>Genre(s):</strong></p>
+        <ul>
+            <li *ngFor="let genre of game.genre">{{genre}}</li>
+        </ul>
+    </div>
+    <div class="reviews">
+        <h2>Reviews</h2>
+        <button  *ngIf="isUser" mat-flat-button class="new-review" (click)="openReviewDialog()" >New Review</button>
+        <div *ngIf="game.reviews && game.reviews.length > 0; else noReviews">
+          <div *ngFor="let review of game.reviews" class="review">
+              <p><strong>{{ review.owner.username }}:</strong> {{ review.content }} (Rating: {{ review.rating }}/10)</p>
+              <div *ngIf="isReviewOwner(review)" class="review-actions">
+                <button mat-flat-button class="edit-review" (click)="openReviewDialog(review)">Edit</button>
+                <button mat-flat-button class="delete-review" (click)="deleteReview(review)">Delete</button>
+            </div>
+          </div>
+        </div>
+        <ng-template #noReviews>
+          <p>No reviews found!</p>
+        </ng-template>
+      </div>
+</div>

@@ -7,7 +7,7 @@ This is a full-stack video game rating application built with Spring Boot and Po
 ## Prerequisites
 
 - Java 17
-- Node,js and npm
+- Node.js and npm
 - Angular CLI
 - PostgreSQL 17
 
